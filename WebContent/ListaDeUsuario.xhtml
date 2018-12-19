@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Listagem de Usuario</title>
+</h:head>
+<h:body>
+
+	<b:panel title="Listagem de Usuario" collapsible="false" id="usuario"
+		class="usuarios"
+		style="position: relative; width: 75%; margin: 0 auto;">
+		<h:form>
+
+			<h:panelGroup id="counterId" layout="block" class="usuarioListagem">
+				<b:dataTable value="#{usuarioViewModel.usuarios}" var="usuarios">
+					<b:dataTableColumn value="#{usuarios.nome}" label="Nome" />
+					<b:dataTableColumn value="#{usuarios.cargo.nome}" label="Cargo" />
+				</b:dataTable>
+			</h:panelGroup>
+
+			<b:commandButton value="Recarregar" update="@(.usuarioListagem)" />
+
+		</h:form>
+	</b:panel>
+
+</h:body>
+</html>

@@ -3,10 +3,13 @@ package br.com.desafio.dominio;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Usuario {
@@ -21,6 +24,10 @@ public class Usuario {
 	@ManyToOne
 	@JoinColumn(name = "id_cargo")
 	private Cargo cargo;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+	private Telefone telefone;
 
 	public Integer getId() {
 		return id;
